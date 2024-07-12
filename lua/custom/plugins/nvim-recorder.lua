@@ -8,6 +8,11 @@ return -- lazy.nvim
     -- The first register is the default register used as macro-slot after
     -- startup.
     slots = { 'a', 'b' },
+    keys = {
+      -- these must match the keys in the mapping config below
+      { 'q', desc = ' Start Recording' },
+      { 'Q', desc = ' Play Recording' },
+    },
 
     mapping = {
       startStopRecording = 'q',
@@ -54,10 +59,13 @@ return -- lazy.nvim
     -- [experimental] partially share keymaps with nvim-dap.
     -- (See README for further explanations.)
     dapSharedKeymaps = false,
-    -- Indicates whether you are currently recording. Useful if you are using
-    -- `cmdheight=0`, where recording-status is not visible.
     function()
+      -- Indicates whether you are currently recording. Useful if you are using
+      -- `cmdheight=0`, where recording-status is not visible.
       require('recorder').recordingStatus()
+      -- Displays non-empty macro-slots (registers) and indicates the selected ones.
+      -- Only displayed when *not* recording. Slots with breakpoints get an extra `#`.
+      require('recorder').displaySlots()
     end,
   }, -- required even with default settings, since it calls `setup()`
 }

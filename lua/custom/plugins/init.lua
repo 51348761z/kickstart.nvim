@@ -33,18 +33,18 @@ vim.o.splitright = true
 vim.o.list = true
 vim.o.listchars = 'space:·'
 -- 补全增强
-vim.o.wildmenu = true
+-- vim.o.wildmenu = true
 -- Dont' pass messages to |ins-completin menu|
-vim.o.shortmess = vim.o.shortmess .. 'c'
+-- vim.o.shortmess = vim.o.shortmess .. 'c'
 -- 补全最多显示n行
 vim.o.pumheight = 16
 -- 永远显示 tabline
-vim.o.showtabline = 2
+-- vim.o.showtabline = 2
 -- 使用增强状态栏插件后不再需要 vim 的模式提示
 vim.o.showmode = true
-vim.o.completeopt = 'menuone,noselect,preview'
+-- vim.o.completeopt = 'menuone,noselect,preview'
 -- 状态栏高度
-vim.o.cmdheight = 0
+-- vim.o.cmdheight = 0
 
 vim.keymap.set('i', '<C-s>', '<ESC>:w<CR>')
 vim.keymap.set('n', '<C-s>', ':w<CR>')
