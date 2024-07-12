@@ -7,8 +7,9 @@ return {
     },
     config = function()
       require('codeium').setup {
-        detect_proxy = false,
-        enable_chat = true,
+        -- detect_proxy = false,
+        -- enable_chat = true,
+        -- config = true,
       }
     end,
   },

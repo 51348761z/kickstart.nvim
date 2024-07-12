@@ -702,6 +702,7 @@ require('lazy').setup({
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-cmdline',
       'Exafunction/codeium.nvim',
     },
     config = function()
@@ -711,11 +712,15 @@ require('lazy').setup({
       luasnip.config.setup {}
 
       cmp.setup {
-        preselect = cmp.PreselectMode.None,
-        completion = {
-          -- autocomplete = false,
-          completeopt = 'menu,menuone,noinsert', -- sudgeseted in issue #209
-        },
+        -- enabled = true,
+        -- preselect = cmp.PreselectMode.None,
+        -- completion = {
+        --   -- autocomplete = false,
+        --   completeopt = 'menu,menuone,noinsert', -- sudgeseted in issue #209
+        -- },
+        -- {
+        --   confirmation = { completeopt = 'menu,menuone,noinsert' },
+        -- },
         snippet = {
           -- REQUIRED - you must specify a snippet engine
           expand = function(args)
@@ -743,7 +748,7 @@ require('lazy').setup({
           -- Accept ([y]es) the completion.
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
-          ['<C-i>'] = cmp.mapping.confirm { select = true },
+          -- ['<C-i>'] = cmp.mapping.confirm { select = true },
 
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
@@ -794,6 +799,27 @@ require('lazy').setup({
             },
           },
         },
+        -- `/` cmdline setup.
+        cmp.setup.cmdline('/', {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = {
+            { name = 'buffer' },
+          },
+        }),
+        -- `:` cmdline setup.
+        cmp.setup.cmdline(':', {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = cmp.config.sources({
+            { name = 'path' },
+          }, {
+            {
+              name = 'cmdline',
+              option = {
+                ignore_cmds = { 'Man', '!' },
+              },
+            },
+          }),
+        }),
       }
     end,
   },
@@ -832,7 +858,7 @@ require('lazy').setup({
       --  and try some other statusline plugin
       local statusline = require 'mini.statusline'
       -- set use_icons to true if you have a Nerd Font
-      statusline.setup { use_icons = vim.g.have_nerd_font }
+      statusline.setup { use_icons = vim.g.have_nerd_font, set_vim_settings = true }
 
       -- You can configure sections in the statusline by overriding their
       -- default behavior. For example, here we set the section for

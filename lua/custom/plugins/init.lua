@@ -18,9 +18,9 @@ vim.bo.shiftwidth = 2
 vim.o.expandtab = true
 vim.bo.expandtab = true
 -- 新行对齐当前行
-vim.o.autoindent = true
-vim.bo.autoindent = true
-vim.o.smartindent = true
+-- vim.o.autoindent = true
+-- vim.bo.autoindent = true
+-- vim.o.smartindent = true
 -- 搜索大小写不敏感，除非包含大写
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -41,8 +41,10 @@ vim.o.pumheight = 16
 -- 永远显示 tabline
 vim.o.showtabline = 2
 -- 使用增强状态栏插件后不再需要 vim 的模式提示
-vim.o.showmode = false
+vim.o.showmode = true
 vim.o.completeopt = 'menuone,noselect,preview'
+-- 状态栏高度
+vim.o.cmdheight = 0
 
 vim.keymap.set('i', '<C-s>', '<ESC>:w<CR>')
 vim.keymap.set('n', '<C-s>', ':w<CR>')
