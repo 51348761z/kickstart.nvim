@@ -80,11 +80,6 @@ return {
     'hiphish/rainbow-delimiters.nvim',
   },
   {
-    'andymass/vim-matchup',
-    -- Highlight, jump between pairs like if..else
-    opts = {},
-  },
-  {
     -- dimming the highlights of unused functions, variables, parameters, and more
     'zbirenbaum/neodim',
     event = 'LspAttach',

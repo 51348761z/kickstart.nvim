@@ -276,6 +276,7 @@ require('lazy').setup({
 
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
+    tag = 'v2.1.0',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
       require('which-key').setup()
@@ -778,9 +779,9 @@ require('lazy').setup({
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         },
         sources = {
+          { name = 'codeium' },
           { name = 'luasnip' },
           { name = 'nvim_lsp' },
-          { name = 'codeium' },
           { name = 'nvim_lsp_signature_help' },
           { name = 'path' },
           { name = 'buffer' },
@@ -791,9 +792,9 @@ require('lazy').setup({
             maxwidth = 50,
             ellipsis_char = '...',
             menu = {
+              codeium = '[Codeium]',
               luasnip = '[LuaSnip]',
               nvim_lsp = '[LSP]',
-              codeium = '[Codeium]',
               path = '[Path]',
               buffer = '[Buffer]',
             },
@@ -851,7 +852,21 @@ require('lazy').setup({
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
+      require('mini.surround').setup {
+        -- Module mappings. Use `''` (empty string) to disable one.
+        mappings = {
+          add = 'sa', -- Add surrounding in Normal and Visual modes
+          delete = 'sd', -- Delete surrounding
+          find = 'sf', -- Find surrounding (to the right)
+          find_left = 'sF', -- Find surrounding (to the left)
+          highlight = 'sh', -- Highlight surrounding
+          replace = 'sr', -- Replace surrounding
+          update_n_lines = 'sn', -- Update `n_lines`
+
+          suffix_last = 'l', -- Suffix to search with "prev" method
+          suffix_next = 'n', -- Suffix to search with "next" method
+        },
+      }
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
