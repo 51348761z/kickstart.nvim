@@ -9,6 +9,15 @@ return -- lazy.nvim
   event = 'VeryLazy',
   opts = {
     -- add any options here
+    lsp = {
+      -- hover = {
+      --   enabled = false,
+      -- },
+      signature = {
+        enabled = false,
+      },
+    },
+
     vim.keymap.set('n', '<leader>nl', function()
       require('noice').cmd 'last'
     end, { desc = 'last message' }),
