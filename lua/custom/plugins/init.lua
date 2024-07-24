@@ -69,6 +69,20 @@ if vim.g.neovide then
   vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
   vim.g.neovide_window_blurred = true
 end
+vim.cmd [[
+let g:clipboard = {
+\   'name': 'WslClipboard',
+\   'copy': {
+\      '+': 'clip.exe',
+\      '*': 'clip.exe',
+\    },
+\   'paste': {
+\      '+': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+\      '*': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+\   },
+\   'cache_enabled': 0,
+\ }
+]]
 return {
   {
     -- 自动记忆当前文件位置，在下次打开时定位到上次位置。
