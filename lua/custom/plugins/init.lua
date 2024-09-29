@@ -58,31 +58,39 @@ vim.keymap.set('n', '<leader>|', ':vsplit<CR>')
 
 -- For neovide
 if vim.g.neovide then
-  vim.keymap.set('n', '<D-s>', ':w<CR>')
-  vim.keymap.set('v', '<D-c>', '+y') -- copy
-  vim.keymap.set('n', '<D-v>', '+P') -- paste normal mode
-  vim.keymap.set('v', '<D-v>', '+P')
-  vim.keymap.set('c', '<D-v>', '<C-R>+')
-  vim.keymap.set('i', '<D-v>', '<C-R>+')
-  -- vim.o.guifont = 'ComicMono NF:h20' -- text below applies for vimScript
-  vim.o.guifont = 'Agave Nerd Font Mono:h20' -- text below applies for vimScript
-  vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
+  -- vim.keymap.set('n', '<D-s>', ':w<CR>')
+  -- vim.keymap.set('v', '<D-c>', '+y') -- copy
+  -- vim.keymap.set('n', '<D-v>', '+P') -- paste normal mode
+  -- vim.keymap.set('v', '<D-v>', '+P')
+  -- vim.keymap.set('c', '<D-v>', '<C-R>+')
+  -- vim.keymap.set('i', '<D-v>', '<C-R>+')
+  -- -- vim.o.guifont = 'ComicMono NF:h20' -- text below applies for vimScript
+  -- vim.o.guifont = 'Agave Nerd Font Mono:h20' -- text below applies for vimScript
+  -- vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
   vim.g.neovide_window_blurred = true
+
+  --- For ubuntu
+  vim.o.guifont = "ComicShannsMono Nerd Font:h17"
 end
-vim.cmd [[
-let g:clipboard = {
-\   'name': 'WslClipboard',
-\   'copy': {
-\      '+': 'clip.exe',
-\      '*': 'clip.exe',
-\    },
-\   'paste': {
-\      '+': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-\      '*': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-\   },
-\   'cache_enabled': 0,
-\ }
-]]
+
+-- For windows WSL clipboard
+-- vim.cmd [[
+-- let g:clipboard = {
+-- \   'name': 'WslClipboard',
+-- \   'copy': {
+-- \      '+': 'clip.exe',
+-- \      '*': 'clip.exe',
+-- \    },
+-- \   'paste': {
+-- \      '+': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+-- \      '*': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+-- \   },
+-- \   'cache_enabled': 0,
+-- \ }
+-- ]]
+
+-- Ubuntu clipboard
+vim.api.nvim_set_option("clipboard", "unnamedplus")
 return {
   {
     -- 自动记忆当前文件位置，在下次打开时定位到上次位置。

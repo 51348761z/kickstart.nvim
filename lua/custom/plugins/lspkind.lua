@@ -50,6 +50,7 @@ return {
           Operator = '󰆕',
           TypeParameter = '',
           Codeium = '',
+          FittenCode = "",
         },
       }
     end,

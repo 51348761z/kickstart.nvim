@@ -25,7 +25,7 @@ return {
         truncate_names = true, -- whether or not tab names should be truncated
         tab_size = 18,
         diagnostics = 'nvim_lsp',
-        diagnostics_update_in_insert = true,
+        -- diagnostics_update_in_insert = true,
         --- count is an integer representing total count of errors
         --- level is a string "error" | "warning"
         --- diagnostics_dict is a dictionary from error level ("error", "warning" or "info")to number of errors for each level.
@@ -61,6 +61,9 @@ return {
         vim.api.nvim_set_keymap('n', '<leader>8', '<Cmd>BufferLineGoToBuffer 8<CR>', { noremap = true, silent = true }),
         vim.api.nvim_set_keymap('n', '<leader>9', '<Cmd>BufferLineGoToBuffer 9<CR>', { noremap = true, silent = true }),
         require('which-key').register { ['<leader>b'] = { name = '[B]uffer', _ = 'which_key_ignore' } },
+        vim.diagnostic.config {
+          update_in_insert = true
+        },
 
         always_show_bufferline = true,
       },

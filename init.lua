@@ -570,6 +570,7 @@ require('lazy').setup({
         clangd = {},
         -- gopls = {},
         pyright = {},
+        -- pylsp = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -642,6 +643,7 @@ require('lazy').setup({
         desc = '[F]ormat buffer',
       },
     },
+    -- optional = true,
     opts = {
       notify_on_error = false,
       format_on_save = function(bufnr)
@@ -657,7 +659,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        python = { 'black' },
+        ['python'] = { 'black' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
@@ -896,7 +898,7 @@ require('lazy').setup({
       auto_install = true,
       highlight = {
         enable = true,
-        disable = {'c', 'cpp'},
+        disable = { 'c', 'cpp' },
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
