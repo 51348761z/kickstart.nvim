@@ -39,8 +39,8 @@ return {
         -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
         --   return '(' .. count .. ')'
         -- end,
-        indicator_icon = '',
-        buffer_close_icon = '',
+        indicator_icon = '📋',
+        buffer_close_icon = '✘',
         modified_icon = '●',
         close_icon = '',
         left_trunc_marker = '',
@@ -48,9 +48,9 @@ return {
         vim.keymap.set('n', '<S-h>', ':BufferLineCyclePrev<CR>'),
         vim.keymap.set('n', '<S-l>', ':BufferLineCycleNext<CR>'),
         vim.keymap.set('n', '<leader>bd', ':bd<CR>'),
-        vim.keymap.set('n', '<leader>br', ':bufferLineCloseRight<CR>'),
-        vim.keymap.set('n', '<leader>bl', ':bufferLineCloseLeft<CR>'),
-        vim.keymap.set('n', '<leader>bo', ':bufferLineCloseOthers<CR>'),
+        vim.keymap.set('n', '<leader>br', ':BufferLineCloseRight<CR>'),
+        vim.keymap.set('n', '<leader>bl', ':BufferLineCloseLeft<CR>'),
+        vim.keymap.set('n', '<leader>bo', ':BufferLineCloseOthers<CR>'),
         vim.api.nvim_set_keymap('n', '<leader>1', '<Cmd>BufferLineGoToBuffer 1<CR>', { noremap = true, silent = true }),
         vim.api.nvim_set_keymap('n', '<leader>2', '<Cmd>BufferLineGoToBuffer 2<CR>', { noremap = true, silent = true }),
         vim.api.nvim_set_keymap('n', '<leader>3', '<Cmd>BufferLineGoToBuffer 3<CR>', { noremap = true, silent = true }),

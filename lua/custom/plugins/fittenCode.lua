@@ -6,11 +6,11 @@ return {
       action = {
         keymaps = {
           inline = {
-            -- ['<C-Down>'] = 'accept_all_suggestions',
-            ['<C-Down>'] = 'accept_line',
-            ['<C-Right>'] = 'accept_word',
-            ['<C-[>'] = 'revoke_line',
-            ['<C-Left>'] = 'revoke_word',
+            ['<C-Down>'] = 'accept_all_suggestions',
+            ['<C-9>'] = 'accept_line',
+            ['<C-0>'] = 'accept_word',
+            ['<C-8>'] = 'revoke_line',
+            ['<C-7>'] = 'revoke_word',
             ['<A-\\>'] = 'triggering_completion',
           },
           chat = {

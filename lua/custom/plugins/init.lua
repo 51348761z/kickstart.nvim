@@ -64,13 +64,19 @@ if vim.g.neovide then
   -- vim.keymap.set('v', '<D-v>', '+P')
   -- vim.keymap.set('c', '<D-v>', '<C-R>+')
   -- vim.keymap.set('i', '<D-v>', '<C-R>+')
-  -- -- vim.o.guifont = 'ComicMono NF:h20' -- text below applies for vimScript
+  -- vim.o.guifont = 'ComicMono NF:h20' -- text below applies for vimScript
   -- vim.o.guifont = 'Agave Nerd Font Mono:h20' -- text below applies for vimScript
   -- vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
   vim.g.neovide_window_blurred = true
 
   --- For ubuntu
   vim.o.guifont = "ComicShannsMono Nerd Font:h17"
+	vim.api.nvim_set_keymap('v', '<sc-c>', '"+y', {noremap = true})
+	vim.api.nvim_set_keymap('n', '<sc-v>', 'l"+P', {noremap = true})
+	vim.api.nvim_set_keymap('v', '<sc-v>', '"+P', {noremap = true})
+	vim.api.nvim_set_keymap('c', '<sc-v>', '<C-o>l<C-o>"+<C-o>P<C-o>l', {noremap = true})
+	vim.api.nvim_set_keymap('i', '<sc-v>', '<ESC>l"+Pli', {noremap = true})
+	vim.api.nvim_set_keymap('t', '<sc-v>', '<C-\\><C-n>"+Pi', {noremap = true})
 end
 
 -- For windows WSL clipboard
